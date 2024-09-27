@@ -32,28 +32,31 @@ Make sure you have the following installed on your machine:
    git clone https://github.com/your-username/coffee-gate.git
 
 2. Navigate to the project directory:
-  cd coffee-gate
+   ```bash
+   cd coffee-gate
 
 4. Install dependencies:
-  npm install
+   ```bash
+   npm install
 
 5. Start the application:
-  expo start
+   ```bash
+   expo start
 
-=> Use the Expo app on your phone or an emulator to view the app by scanning the provided QR code.
+   Use the Expo app on your phone or an emulator to view the app by scanning the provided QR code.
 
 ### Project Structure
 
-.
-├── assets/             # Images, icons, fonts
-├── components/         # Reusable UI components
-├── screens/            # App screens (Menu, Order, Reservation, etc.)
-├── navigation/         # Navigation configurations
-├── services/           # API services and backend interaction logic
-├── utils/              # Utility functions (QR code generation, date formatting, etc.)
-├── App.js              # Main entry point of the app
-├── package.json        # Project configuration and dependencies
-└── README.md           # Project documentation
+**.**  
+├── **assets/** _____________# Images, icons, fonts  
+├── **components/** _________# Reusable UI components  
+├── **screens/** ____________# App screens (Menu, Order, Reservation, etc.)  
+├── **navigation/** _________# Navigation configurations  
+├── **services/** __________# API services and backend interaction logic  
+├── **utils/** ______________# Utility functions (QR code generation, date formatting, etc.)  
+├── **App.js** ______________# Main entry point of the app  
+├── **package.json** ________# Project configuration and dependencies  
+└── **README.md** ___________# Project documentation  
 
 ### Technologies Used
 
@@ -90,14 +93,18 @@ Make sure you have the following installed on your machine:
 We welcome contributions to Coffee Gate! To contribute:
 
 1. Fork the repository.
+
 2. Create a new branch
-   (git checkout -b feature/your-feature-name)
+   ```bash
+   git checkout -b feature/your-feature-name
 3. Commit your changes
-   (git commit -m 'Add a new feature').
+   ```bash
+   git commit -m 'Add a new feature'
 4. Push to the branch
-   (git push origin feature/your-feature-name).
+   ```bash
+   git push origin feature/your-feature-name
 5. Create a pull request.
-   
+
 Please make sure to follow our contributing guidelines.
 
 ## Issues
