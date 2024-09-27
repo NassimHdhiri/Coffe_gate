@@ -145,4 +145,8 @@ For more information, feel free to reach out to the project maintainer:
 - Name: Mohamed Nassim Hdhiri
 - Email: hdhirimednassim@gmail.com
 - LinkedIn: Nassim Hdhiri
+### Commit update 
+- initial commit
+- Second commit 
+
 >>>>>>> origin/master
