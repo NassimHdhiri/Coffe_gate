@@ -39,7 +39,7 @@ Coffee Gate is a mobile app for a tea salon offering a virtual menu, QR code-bas
 
 ## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 Make sure you have the following installed on your machine:
 
@@ -48,7 +48,7 @@ Make sure you have the following installed on your machine:
 - **Expo CLI** for React Native development
 - **Git**
 
-## Installation
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -111,7 +111,7 @@ Make sure you have the following installed on your machine:
 - The admin has access to a dashboard that provides an overview of orders, server performance, and table availability.
 - Admins can also view statistics related to revenue, customer activity, and reservation management.
 
-### Contributing
+## Contributing
 
 We welcome contributions to Coffee Gate! To contribute:
 
@@ -130,15 +130,15 @@ We welcome contributions to Coffee Gate! To contribute:
 
 Please make sure to follow our contributing guidelines.
 
-### Issues
+## Issues
 
 If you encounter any bugs, feel free to open an issue in the GitHub repository. Please provide detailed information to help us resolve the issue faster.
 
-### License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Contact
+## Contact
 
 For more information, feel free to reach out to the project maintainer:
 
@@ -168,11 +168,11 @@ Run the following command to install the missing module:
 
 - Solution:
 
-Run the following command to install the missing metro module:
+Run the following command to install the missing metro module:  
     ```bash
     npm install --save-dev metro
 
-After applying these fixes, try starting the Expo server again:
+After applying these fixes, try starting the Expo server again:  
     ```bash
     npx expo start
 
