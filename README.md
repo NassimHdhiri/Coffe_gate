@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # @rneui/template
 
 ## React Native Elements Expo Template
@@ -176,5 +176,3 @@ Run the following command to install the missing metro module:
 After applying these fixes, try starting the Expo server again:  
    ```bash
    npx expo start
-
->>>>>>> origin/master
