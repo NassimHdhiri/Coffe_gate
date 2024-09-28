@@ -190,12 +190,12 @@ After applying these fixes, try starting the Expo server again:
 
 - Solution:
 
-   1. Check the installed version of NativeWind:
+ 1. Check the installed version of NativeWind:
    ```bash
    npm list nativewind
    ```
 
-   2. Update NativeWind to the latest version:
+ 2. Update NativeWind to the latest version:
    ```bash
    npm install nativewind@latest
    ```
@@ -211,18 +211,18 @@ If you encounter the following TypeScript error when using NativeWind in your Re
    ```
 
 - Solution
-   1. Create a Declaration File:
+ 1. Create a Declaration File:
 
    In your project root, create a new file named **my-app.d.ts**.
 
-   2. Add Type Reference:
+ 2. Add Type Reference:
 
    Open the my-app.d.ts file and add the following line:
    ```bash
    /// <reference types="nativewind/types" />
    ```
 
-   3. Restart Your TypeScript Server:
+ 3. Restart Your TypeScript Server:
 
    If you're using an IDE like VSCode, you may need to restart the TypeScript server for the changes to take effect.
 
