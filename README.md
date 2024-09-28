@@ -39,7 +39,7 @@ Coffee Gate is a mobile app for a tea salon offering a virtual menu, QR code-bas
 
 ## Getting Started
 
-### Prerequisites
+## Prerequisites
 
 Make sure you have the following installed on your machine:
 
@@ -48,7 +48,7 @@ Make sure you have the following installed on your machine:
 - **Expo CLI** for React Native development
 - **Git**
 
-### Installation
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -68,7 +68,7 @@ Make sure you have the following installed on your machine:
 
    Use the Expo app on your phone or an emulator to view the app by scanning the provided QR code.
 
-### Project Structure
+## Project Structure
 
 **.**  
 ├── **assets/** _____________# Images, icons, fonts  
@@ -81,7 +81,7 @@ Make sure you have the following installed on your machine:
 ├── **package.json** ________# Project configuration and dependencies  
 └── **README.md** ___________# Project documentation  
 
-### Technologies Used
+## Technologies Used
 
 - **React Native**: For building cross-platform mobile apps.
 - **Expo: To ease** development and testing of the app.
@@ -90,28 +90,28 @@ Make sure you have the following installed on your machine:
 - **React Navigation**: To manage in-app navigation between screens.
 - **Redux**: For managing global state across the application.
 
-### Use Cases
-## Ordering:
+## Use Cases
+### Ordering:
 
 - Customers scan the table's QR code to view the menu and place an order.
 - Once the order is placed, a unique QR code for the order is generated.
 - The admin or server scans the order's QR code to mark it as paid and free the table.
 
-## Table Reservations:
+### Table Reservations:
 
 - Customers can reserve tables for specific events like matches or birthdays.
 - The admin can approve or manage reservations through the dashboard.
 
-## Loyalty Program:
+### Loyalty Program:
 
 - Customers earn points with each order, which can be redeemed for rewards.
 
-## Admin Dashboard:
+### Admin Dashboard:
 
 - The admin has access to a dashboard that provides an overview of orders, server performance, and table availability.
 - Admins can also view statistics related to revenue, customer activity, and reservation management.
 
-## Contributing
+### Contributing
 
 We welcome contributions to Coffee Gate! To contribute:
 
@@ -130,15 +130,15 @@ We welcome contributions to Coffee Gate! To contribute:
 
 Please make sure to follow our contributing guidelines.
 
-## Issues
+### Issues
 
 If you encounter any bugs, feel free to open an issue in the GitHub repository. Please provide detailed information to help us resolve the issue faster.
 
-## License
+### License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
+### Contact
 
 For more information, feel free to reach out to the project maintainer:
 
@@ -146,9 +146,9 @@ For more information, feel free to reach out to the project maintainer:
 - Email: hdhirimednassim@gmail.com
 - LinkedIn: Nassim Hdhiri
 
-### Common Issues and Fixes
+## Common Issues and Fixes
 
-## Issue 1: Error: Cannot find module '@react-native/assets-registry/registry.js'
+### Issue 1: Error: Cannot find module '@react-native/assets-registry/registry.js'
 
 - Error Message:
     ```bash 
@@ -160,7 +160,7 @@ Run the following command to install the missing module:
     ```bash
     npm install @react-native/assets-registry
 
-## Issue 2: Error: Cannot find module 'metro/src/DeltaBundler/Graph'
+### Issue 2: Error: Cannot find module 'metro/src/DeltaBundler/Graph'
 
 - Error Message:
     ```bash
