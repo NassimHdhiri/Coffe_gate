@@ -145,8 +145,35 @@ For more information, feel free to reach out to the project maintainer:
 - Name: Mohamed Nassim Hdhiri
 - Email: hdhirimednassim@gmail.com
 - LinkedIn: Nassim Hdhiri
-### Commit update 
-- initial commit
-- Second commit 
+
+### Common Issues and Fixes
+
+## Issue 1: Error: Cannot find module '@react-native/assets-registry/registry.js'
+
+- Error Message:
+    ```bash 
+    Error: Cannot find module '@react-native/assets-registry/registry.js'
+
+- Solution:
+
+Run the following command to install the missing module:
+    ```bash
+    npm install @react-native/assets-registry
+
+## Issue 2: Error: Cannot find module 'metro/src/DeltaBundler/Graph'
+
+- Error Message:
+    ```bash
+    Error: Cannot find module 'metro/src/DeltaBundler/Graph'
+
+- Solution:
+
+Run the following command to install the missing metro module:
+    ```bash
+    npm install --save-dev metro
+
+After applying these fixes, try starting the Expo server again:
+    ```bash
+    npx expo start
 
 >>>>>>> origin/master
