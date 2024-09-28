@@ -169,11 +169,11 @@ Run the following command to install the missing module:
 - Solution:
 
 Run the following command to install the missing metro module:  
-    ```bash
-    npm install --save-dev metro
+```bash
+npm install --save-dev metro
 
 After applying these fixes, try starting the Expo server again:  
-    ```bash
-    npx expo start
+```bash
+npx expo start
 
 >>>>>>> origin/master
