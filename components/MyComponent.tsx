@@ -11,7 +11,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 bg-red-400 bg-background items-center justify-center">
       <Text h3>Start Using RNE </Text>
       <Text style={styles.text}>
         Open up App.tsx to start working on your app!

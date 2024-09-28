@@ -176,3 +176,52 @@ Run the following command to install the missing metro module:
 After applying these fixes, try starting the Expo server again:  
    ```bash
    npx expo start
+   ```
+
+### Issue 3: Issue: Babel Plugin Error with Expo
+- Error Message:
+```bash
+Android Bundling failed 2239ms D:\test project\coffe_gate\node_modules\expo\AppEntry.js (1 module)
+
+error: node_modules\expo\AppEntry.js: [BABEL] D:\test project\coffe_gate\node_modules\expo\AppEntry.js: .plugins is not a valid Plugin property       
+› Detected a change in babel.config.js. Restart the server to see the new results. You may need to clear the bundler cache with the --clear flag for your changes to take effect.
+```
+
+- Solution:
+
+1. Check the installed version of NativeWind:
+```bash
+npm list nativewind
+```
+
+2. Update NativeWind to the latest version:
+```bash
+npm install nativewind@latest
+```
+
+This should resolve the Babel plugin error related to NativeWind in your React Native project.
+
+
+### Issue 4: Resolving TypeScript Error with NativeWind
+
+If you encounter the following TypeScript error when using NativeWind in your React Native project:
+```bash
+Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<View> & Readonly<ViewProps>'. Property 'className' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<View> & Readonly<ViewProps>'.
+```
+
+- Solution
+1. Create a Declaration File:
+
+In your project root, create a new file named **my-app.d.ts**.
+
+2. Add Type Reference:
+
+Open the my-app.d.ts file and add the following line:
+```bash
+/// <reference types="nativewind/types" />
+```
+
+3. Restart Your TypeScript Server:
+
+If you're using an IDE like VSCode, you may need to restart the TypeScript server for the changes to take effect.
+
