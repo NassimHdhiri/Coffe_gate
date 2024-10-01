@@ -6,31 +6,58 @@ import {
   TouchableOpacity,
   ImageBackground
 } from 'react-native';
-import { Text, SearchBar, Header, Avatar, Image } from 'react-native-elements';
+import { Text, SearchBar, Header, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native';
 import navigationView from './Drawer';
+
+import { Image } from 'expo-image';
+
+
 
 const ClientPage = () => {
   const drawer = useRef<DrawerLayoutAndroid>(null);
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>('left');
   const [search, setSearch] = useState('');
 
+
+
+  // Categories Images
+  // const Breakfast = require('../../../assets/foods/categories/Breakfast.png')
+  // const Chicha = require('../../../assets/foods/categories/Chicha.png')
+  // const Plats = require('../../../assets/foods/categories/Plat.png')
+  // const Pizza = require('../../../assets/foods/categories/Pizza.png')
+  // const CoffeeCup = require('../../../assets/foods/categories/CoffeeCup.png')
+
+  const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
+
+  // Categories
+  const categories = [
+    {
+      name:"Breakfast",
+      image:require('../../../assets/foods/categories/Breakfast.png')
+    },
+    {
+      name:"Chicha",
+      image:require('../../../assets/foods/categories/Breakfast.png')
+    },
+    {
+      name:"Plats",
+      image:Plats
+    },
+    {
+      name:"Coffee",
+      image:Coffee
+    },
+    {
+      name:"Pizza",
+      image:Pizza
+    },
+  ]
+
   // Update search input
   const updateSearch = (searchValue) => {
     setSearch(searchValue);
   };
-
-  const categories = [
-    'Music',
-    'Art',
-    'Sports',
-    'Food',
-    'Technology',
-    'Health',
-    'Travel',
-  ];
-
-  const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
 
   return (
     <DrawerLayoutAndroid
@@ -89,12 +116,13 @@ const ClientPage = () => {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {categories.map((category, index) => (
                   <TouchableOpacity key={index} style={styles.categoryItem}>
-                    <Text style={styles.categoryText}>{category}</Text>
+                    <Image source={category.image}  resizeMode="contain"   style={{width: 50, height: 50}} />
+                    <Text style={styles.categoryText}>{category.name}</Text>
                   </TouchableOpacity>
                 ))}
               </ScrollView>
             </View>
-
+            <Image source={Breakfast}  style={{width: 100, height: 100}} />
 
             {/* Category Detail View */}
             <View style={styles.categoryCard}>
@@ -170,6 +198,8 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start', // Aligns items to the start
     },  
   categoryItem: {
+    height:120,
+    width:100,
     backgroundColor: '#007bff', // Background color for category items
     borderRadius: 20, // Rounded corners
     paddingVertical: 10, // Vertical padding
@@ -183,15 +213,15 @@ const styles = StyleSheet.create({
   categoryCard:{
     // height: 150,
     width: '100%',
-    backgroundColor: '#fff', // Background color of the card
-    borderRadius: 8, // Rounded corners
+    // backgroundColor: '#fff', // Background color of the card
+    // borderRadius: 8, // Rounded corners
     padding: 16, // Padding inside the card
-    marginVertical: 8, // Vertical margin between cards
-    elevation: 2, // Shadow effect for Android
-    shadowColor: '#000', // Shadow color for iOS
-    shadowOffset: { width: 0, height: 1 }, // Shadow offset for iOS
-    shadowOpacity: 0.1, // Shadow opacity for iOS
-    shadowRadius: 2, // Shadow radius for iOS
+    // marginVertical: 8, // Vertical margin between cards
+    // elevation: 2, // Shadow effect for Android
+    // shadowColor: '#000', // Shadow color for iOS
+    // shadowOffset: { width: 0, height: 1 }, // Shadow offset for iOS
+    // shadowOpacity: 0.1, // Shadow opacity for iOS
+    // shadowRadius: 2, // Shadow radius for iOS
   },
   eventCard: {
     height: 150,
