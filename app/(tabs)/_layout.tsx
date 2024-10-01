@@ -1,60 +1,27 @@
-import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons"; // Import vector icons
-import { Pressable, View, StyleSheet } from "react-native"; // Import necessary components
-import { useRouter } from "expo-router"; // Import useRouter to handle navigation
+import { Tabs, useRouter } from "expo-router";
+import { useEffect } from "react";
 
-const TabsLayout = () => {
-  const router = useRouter(); // Initialize router for navigation
+const TabLayout = () => {
+    const router = useRouter();
 
-  return (
+    useEffect(() => {
+        // Set a 5-second delay before navigating to the "admin/index" route
+        const timeoutId = setTimeout(() => {
+          router.replace("/client");
+        }, 3000); // 5000 ms = 5 seconds
+    
+        // Clean up the timeout if the component unmounts before the 5 seconds are up
+        return () => clearTimeout(timeoutId);
+      }, []);
+
+return (
     <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{
-          // Top name of header 
-          headerTitle: "Home",
-          
-          // Bottom title 
-          title: "Home",
-
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="disc" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="users/[id]"
-        options={{
-          // Top name of header 
-          headerTitle: "User",
-
-          // Bottom title 
-          title: "User",
-
-          // Styled back button ("<")
-          headerLeft: () => (
-            <Pressable onPress={() => router.back()}>
-              <View style={styles.backButton}>
-                <Ionicons name="arrow-back" size={28} color="#0096c7" />
-              </View>
-            </Pressable>
-          ),
-
-          // Styled tab icon
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="disc" color={color} size={size} />
-          ),
-        }}
-      />
+        <Tabs.Screen name="index" options={{ title: "Menu",headerShown:false }} />
+        <Tabs.Screen name="admin/index" options={{ title: "Admin" }} />
+        <Tabs.Screen name="client/index" options={{ title: "Client",headerShown:false }} />
+        <Tabs.Screen name="waiter/index" options={{ title: "Waiter" }} />
     </Tabs>
-  );
+);
 };
 
-const styles = StyleSheet.create({
-  backButton: {
-    marginLeft: 10, // Add margin to the left
-    padding: 5, // Add padding around the icon for better touch area
-  },
-});
-
-export default TabsLayout;
+export default TabLayout;

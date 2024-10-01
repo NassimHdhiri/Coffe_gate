@@ -1,24 +1,13 @@
-import {Pressable, Text,View} from 'react-native'
-import {Link,router} from 'expo-router'
+import { View,Text } from "react-native";
 
-
-const HomePage=()=>{
+const MenuPage=()=>{
     return (
         <View>
-            <Text>Home page</Text>
-            <Link href="./users/1">Go to user 1</Link>
-            <Pressable onPress={()=>router.push(
-                {
-                    pathname:'/users/[id]',
-                    params:{
-                        id:2
-                    }
-                }
-            )}> 
-                    <Text>Go to user 2</Text>
-            </Pressable>
+            <Text>
+                Menu Page h
+            </Text>
         </View>
     )
 }
 
-export default HomePage
+export default MenuPage;
