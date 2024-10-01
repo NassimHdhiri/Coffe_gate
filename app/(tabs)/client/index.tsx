@@ -256,6 +256,7 @@ const styles = StyleSheet.create({
     fontWeight: '600', // Semi-bold text
     color: '#000', // Color for the title
     marginBottom: 4, // Margin below the title
+    // marginBottom: 4, // Margin below the title
   },
   eventDescription: {
     fontSize: 14, // Font size for the description
