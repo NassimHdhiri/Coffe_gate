@@ -18,7 +18,7 @@ return (
     <Tabs>
         <Tabs.Screen name="index" options={{ title: "Menu",headerShown:false }} />
         <Tabs.Screen name="admin/index" options={{ title: "Admin" }} />
-        <Tabs.Screen name="client/index" options={{ title: "Client",headerShown:false }} />
+        <Tabs.Screen name="client/index" options={{ title: "Client",headerShown:false,    tabBarStyle: { display: 'none' }}} />
         <Tabs.Screen name="waiter/index" options={{ title: "Waiter" }} />
     </Tabs>
 );
