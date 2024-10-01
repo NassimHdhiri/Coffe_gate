@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import {
   DrawerLayoutAndroid,
   StyleSheet,
-  View,
+  // View,
   TouchableOpacity,
   ImageBackground
 } from 'react-native';
@@ -10,8 +10,10 @@ import { Text, SearchBar, Header, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native';
 import navigationView from './Drawer';
 
-import { Image } from 'expo-image';
+// Import Local assets (Images)
+import { useAssets } from 'expo-asset';
 
+import { Image,View, ActivityIndicator } from 'react-native';
 
 
 const ClientPage = () => {
@@ -19,38 +21,42 @@ const ClientPage = () => {
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>('left');
   const [search, setSearch] = useState('');
 
+  // Path of Local Images from assets folder
+  const [assets, error] = useAssets([
+    require('../../../assets/images/Coffee.png'),
+    require('../../../assets/images/Pizza.png'),
+    require('../../../assets/images/Plat.png'),
+    require('../../../assets/images/Chicha.png'),
+    require('../../../assets/images/Breakfast.png')
+  ]);
+  
+  if (!assets) {
+    return <ActivityIndicator size="large" color="#0000ff" />; // Show a loading spinner while assets are loading
+  }
+  
+  if (error) {
+    return <Text>Error loading assets!</Text>;
+  }
 
-
-  // Categories Images
-  // const Breakfast = require('../../../assets/foods/categories/Breakfast.png')
-  // const Chicha = require('../../../assets/foods/categories/Chicha.png')
-  // const Plats = require('../../../assets/foods/categories/Plat.png')
-  // const Pizza = require('../../../assets/foods/categories/Pizza.png')
-  // const CoffeeCup = require('../../../assets/foods/categories/CoffeeCup.png')
 
   const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
 
   // Categories
   const categories = [
     {
-      name:"Breakfast",
-      image:require('../../../assets/foods/categories/Breakfast.png')
-    },
-    {
-      name:"Chicha",
-      image:require('../../../assets/foods/categories/Breakfast.png')
-    },
-    {
-      name:"Plats",
-      image:Plats
-    },
-    {
       name:"Coffee",
-      image:Coffee
     },
     {
       name:"Pizza",
-      image:Pizza
+    },
+    {
+      name:"Plat",
+    },
+    {
+      name:"Chicha",
+    },
+    {
+      name:"Breakfast",
     },
   ]
 
@@ -116,13 +122,12 @@ const ClientPage = () => {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {categories.map((category, index) => (
                   <TouchableOpacity key={index} style={styles.categoryItem}>
-                    <Image source={category.image}  resizeMode="contain"   style={{width: 50, height: 50}} />
+                    <Image source={assets[index]}   style={{width: 30, height: 30}} />
                     <Text style={styles.categoryText}>{category.name}</Text>
                   </TouchableOpacity>
                 ))}
               </ScrollView>
             </View>
-            <Image source={Breakfast}  style={{width: 100, height: 100}} />
 
             {/* Category Detail View */}
             <View style={styles.categoryCard}>
@@ -198,8 +203,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start', // Aligns items to the start
     },  
   categoryItem: {
-    height:120,
-    width:100,
+    flex:1,
+    justifyContent:"space-evenly",
+    alignItems:'center',
+    height:80,
+    width:75,
     backgroundColor: '#007bff', // Background color for category items
     borderRadius: 20, // Rounded corners
     paddingVertical: 10, // Vertical padding

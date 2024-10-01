@@ -31,15 +31,20 @@
     },
     "plugins": [
       "expo-router",
-      "expo-asset",
+      [
+        "expo-asset",
         {
-          "assets": [ "./assets/foods/categories/Breakfast.png",
-                      "./assets/foods/categories/Chicha.png",
-                      "./assets/foods/categories/Plat.png",
-                      "./assets/foods/categories/Pizza.png",
-                      "./assets/foods/categories/CoffeeCup.png"
+          "assets": [ 
+                      "./assets/images/Breakfast.png",
+                      "./assets/images/Chicha.png",
+                      "./assets/images/Plat.png",
+                      "./assets/images/Pizza.png",
+                      "./assets/images/Coffee.png"
                     ]
         }
+      ]
+      
+        
     ]
   }
 }
