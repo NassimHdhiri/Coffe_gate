@@ -16,6 +16,7 @@ import { useAssets } from 'expo-asset';
 import { Image,View, ActivityIndicator } from 'react-native';
 import { color } from 'react-native-elements/dist/helpers';
 import { Link,router } from 'expo-router';
+import MenuItemsCard from './MenuItemsCard';
 
 
 const ClientPage = () => {
@@ -23,31 +24,7 @@ const ClientPage = () => {
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>('left');
   const [search, setSearch] = useState('');
 
-  // Path of Local Images from assets folder
-  const [assets, error] = useAssets([
-    // require('../../../assets/images/Coffee.png'),
-    require('../../../assets/foods/coffee/cafe_au_lait.png'),
 
-    // require('../../../assets/foods/coffee/americano.png'),
-    require('../../../assets/images/Pizza.png'),
-    require('../../../assets/images/Plat.png'),
-    require('../../../assets/images/Chicha.png'),
-    require('../../../assets/images/Breakfast.png'),
-    require('../../../assets/foods/coffee/americano.png'),
-    require('../../../assets/foods/coffee/cafe_au_lait.png'),
-    require('../../../assets/foods/coffee/cappuccino.png'),
-    require('../../../assets/foods/coffee/americano.png'),
-
-    // require('../../../assets/foods/coffee/espresso.png')
-  ]);
-  
-  if (!assets) {
-    return <ActivityIndicator size="large" color="#0000ff" />; // Show a loading spinner while assets are loading
-  }
-  
-  if (error) {
-    return <Text>Error loading assets!</Text>;
-  }
 
 
   const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
@@ -68,26 +45,6 @@ const ClientPage = () => {
     },
     {
       name:"Breakfast",
-    },
-  ]
-
-  // foods
-  const foods=[
-    {
-      name:'Americano',
-      description:'Chap with Salad'
-    },
-    {
-      name:'Cafe au lait',
-      description:'Chap with Salad'
-    },
-    {
-      name:'Cappuccino',
-      description:'Chap with Salad'
-    },
-    {
-      name:'Espresso',
-      description:'Chap with Salad'
     },
   ]
 
@@ -168,7 +125,7 @@ const ClientPage = () => {
                         shadowOffset: { width: 0, height: 2 }, // Correct shadow offset
                         elevation: 3, // Android-specific shadow
                       }}>
-                      <Image source={assets[index]} style={{ width: 30, height: 30  }} />
+                      {/* <Image source={assets[index]} style={{ width: 30, height: 30  }} /> */}
                     </View>
                     <Text style={styles.categoryText}>{category.name}</Text>
                   </TouchableOpacity>
@@ -181,55 +138,8 @@ const ClientPage = () => {
               <Text style={styles.categoryDetailTitle}>Category Detail View</Text>
               
               {/* Food container */}
-            
-              <View style={styles.foodContainer}>
-                
-                {/* Food card */}
-
-                {
-                  foods.map((food,index)=>(
-                
-                <TouchableOpacity onPress={()=>{router.push('/admin')}} style={styles.foodCard} key={index} >
-                {/* Image Food container */}
-                <View style={{borderTopRightRadius:40,borderTopLeftRadius:40,position:"relative",flex:1,alignItems:"center"}}>
-                  <Image source={assets[index+5]} style={{
-                    shadowColor: 'red',
-                    shadowOffset: { width: 2, height: 12 },  // Corrected shadowOffset format
-                    shadowOpacity: 0.8,  // Adjusted shadowOpacity between 0 and 1
-                    position: 'absolute',
-                    top: -80, 
-                    width: 120, 
-                    height:120
-                  }} />
-                </View>
-                {/* Container Title and description of food */}
-                <View style={{flex:1,alignItems:'center',padding:4,marginTop:-20}}>
-                    <Text style={{fontSize:20,fontWeight:'bold'}}>{food.name}</Text>
-                    <Text style={{color:'grey',textAlign:'justify',paddingTop:10,fontWeight:'700'}}>{food.description} </Text>
-                </View>
-
-                <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',width:'100%'}}>
-                  <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 24 }}>
-                    <Text style={{ color: 'orange',fontWeight: 'bold' }}>$ </Text>
-                    <Text style={{ color: 'black' }}>20</Text>
-                  </Text>
-        
-                </View>
-              </TouchableOpacity>
+                <MenuItemsCard/>
               
-      
-                  ))
-                }
-                
-
-                
-
-                
-                
-                
-
-              
-              </View>
             </View>
 
 
@@ -249,50 +159,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 8,
       },
-      foodCardTouchable: {
-        flex: 1, // Make the TouchableOpacity fill the ImageBackground
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-      foodCardImage: {
-        width:'100%',
-        borderRadius: 10, // Optional: Round the corners of the background image
-      },
-    foodCardText: {
-        fontSize: 16,
-        fontWeight: '500',
-      },
-    foodCard:{
-        // width:"45%",
-        // height:180,
-        // backgroundColor:'#F7EED3',
-        // borderRadius:20,
-        elevation: 4, // Shadow effect for Android
-        shadowColor: '#000', // Shadow color for iOS
-        shadowOffset: { width: 0, height: 1 }, // Shadow offset for iOS
-        shadowOpacity: 0.1, // Shadow opacity for iOS
-        shadowRadius: 2, // Shadow radius for iOS
-        width:"45%",
-        // flex:1,
-        justifyContent:'center',
-        alignItems:"center",
-        padding:5,
-        backgroundColor:"#fff",
-        borderRadius:20,
-        borderTopLeftRadius: 50,
-        borderTopRightRadius:50,
-        height:170 
-    },
-    foodContainer:{
-        paddingTop:70,
-        flex:1,
-        flexDirection:'row',
-        flexWrap:'wrap',
-        columnGap:22,
-        rowGap:90,
-        alignItems:'center',
-        justifyContent:'center'
-    },
+      
     categoryContainer: {
         marginTop: 20, // Adds some space above the category section
         width: '100%', // Takes up full width
