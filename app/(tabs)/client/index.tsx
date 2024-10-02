@@ -17,7 +17,7 @@ import { Image,View, ActivityIndicator } from 'react-native';
 import { color } from 'react-native-elements/dist/helpers';
 import { Link,router } from 'expo-router';
 import MenuItemsCard from './MenuItemsCard';
-
+import CategoryItem from './CategoryItem'
 
 const ClientPage = () => {
   const drawer = useRef<DrawerLayoutAndroid>(null);
@@ -29,25 +29,7 @@ const ClientPage = () => {
 
   const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
 
-  // Categories
-  const categories = [
-    {
-      name:"Coffee",
-    },
-    {
-      name:"Pizza",
-    },
-    {
-      name:"Plat",
-    },
-    {
-      name:"Chicha",
-    },
-    {
-      name:"Breakfast",
-    },
-  ]
-
+ 
   // Update search input
   const updateSearch = (searchValue) => {
     setSearch(searchValue);
@@ -108,29 +90,7 @@ const ClientPage = () => {
             {/* Categories */}
             <View style={styles.categoryCard}>
               <Text style={styles.eventLabel}>Categories</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {categories.map((category, index) => (
-                  <TouchableOpacity key={index} style={styles.categoryItem}>
-                    <View 
-                      style={{
-                        borderRadius: 18,
-                        backgroundColor: 'white',
-                        width: 46,
-                        height: 40, // Make the container square for better image fit
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        shadowColor: '#F1EFEF', 
-                        shadowOpacity: 0.25, // Adjust shadow opacity
-                        shadowRadius: 4, // Adjust shadow radius for better effect
-                        shadowOffset: { width: 0, height: 2 }, // Correct shadow offset
-                        elevation: 3, // Android-specific shadow
-                      }}>
-                      {/* <Image source={assets[index]} style={{ width: 30, height: 30  }} /> */}
-                    </View>
-                    <Text style={styles.categoryText}>{category.name}</Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
+              <CategoryItem/>
             </View>
 
             {/* Category Detail View */}
