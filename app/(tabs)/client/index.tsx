@@ -14,6 +14,8 @@ import navigationView from './Drawer';
 import { useAssets } from 'expo-asset';
 
 import { Image,View, ActivityIndicator } from 'react-native';
+import { color } from 'react-native-elements/dist/helpers';
+import { Link,router } from 'expo-router';
 
 
 const ClientPage = () => {
@@ -23,11 +25,20 @@ const ClientPage = () => {
 
   // Path of Local Images from assets folder
   const [assets, error] = useAssets([
-    require('../../../assets/images/Coffee.png'),
+    // require('../../../assets/images/Coffee.png'),
+    require('../../../assets/foods/coffee/cafe_au_lait.png'),
+
+    // require('../../../assets/foods/coffee/americano.png'),
     require('../../../assets/images/Pizza.png'),
     require('../../../assets/images/Plat.png'),
     require('../../../assets/images/Chicha.png'),
-    require('../../../assets/images/Breakfast.png')
+    require('../../../assets/images/Breakfast.png'),
+    require('../../../assets/foods/coffee/americano.png'),
+    require('../../../assets/foods/coffee/cafe_au_lait.png'),
+    require('../../../assets/foods/coffee/cappuccino.png'),
+    require('../../../assets/foods/coffee/americano.png'),
+
+    // require('../../../assets/foods/coffee/espresso.png')
   ]);
   
   if (!assets) {
@@ -57,6 +68,26 @@ const ClientPage = () => {
     },
     {
       name:"Breakfast",
+    },
+  ]
+
+  // foods
+  const foods=[
+    {
+      name:'Americano',
+      description:'Chap with Salad'
+    },
+    {
+      name:'Cafe au lait',
+      description:'Chap with Salad'
+    },
+    {
+      name:'Cappuccino',
+      description:'Chap with Salad'
+    },
+    {
+      name:'Espresso',
+      description:'Chap with Salad'
     },
   ]
 
@@ -105,6 +136,7 @@ const ClientPage = () => {
         />
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
             <View style={styles.containerBody}>
+
             {/* Event Card */}
             <View style={styles.eventCard}>
               <Text style={styles.eventLabel}>Events</Text>
@@ -122,7 +154,22 @@ const ClientPage = () => {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {categories.map((category, index) => (
                   <TouchableOpacity key={index} style={styles.categoryItem}>
-                    <Image source={assets[index]}   style={{width: 30, height: 30}} />
+                    <View 
+                      style={{
+                        borderRadius: 18,
+                        backgroundColor: 'white',
+                        width: 46,
+                        height: 40, // Make the container square for better image fit
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        shadowColor: '#F1EFEF', 
+                        shadowOpacity: 0.25, // Adjust shadow opacity
+                        shadowRadius: 4, // Adjust shadow radius for better effect
+                        shadowOffset: { width: 0, height: 2 }, // Correct shadow offset
+                        elevation: 3, // Android-specific shadow
+                      }}>
+                      <Image source={assets[index]} style={{ width: 30, height: 30  }} />
+                    </View>
                     <Text style={styles.categoryText}>{category.name}</Text>
                   </TouchableOpacity>
                 ))}
@@ -132,23 +179,61 @@ const ClientPage = () => {
             {/* Category Detail View */}
             <View style={styles.categoryCard}>
               <Text style={styles.categoryDetailTitle}>Category Detail View</Text>
+              
               {/* Food container */}
+            
               <View style={styles.foodContainer}>
+                
                 {/* Food card */}
-                {[...Array(6)].map((_, index) => (
-                  <ImageBackground
-                  key={index}
-                  source={backgroundImage} // Set the background image
-                  style={styles.foodCard} // Use the same style as before
-                  imageStyle={styles.foodCardImage} // Optional: Style the image to fit
-                >
-                  <TouchableOpacity style={styles.foodCardTouchable}>
-                    <Text style={styles.foodCardText}>Food Item {index + 1}</Text>
-                  </TouchableOpacity>
-                </ImageBackground>
-                ))}
+
+                {
+                  foods.map((food,index)=>(
+                
+                <TouchableOpacity onPress={()=>{router.push('/admin')}} style={styles.foodCard} key={index} >
+                {/* Image Food container */}
+                <View style={{borderTopRightRadius:40,borderTopLeftRadius:40,position:"relative",flex:1,alignItems:"center"}}>
+                  <Image source={assets[index+5]} style={{
+                    shadowColor: 'red',
+                    shadowOffset: { width: 2, height: 12 },  // Corrected shadowOffset format
+                    shadowOpacity: 0.8,  // Adjusted shadowOpacity between 0 and 1
+                    position: 'absolute',
+                    top: -80, 
+                    width: 120, 
+                    height:120
+                  }} />
+                </View>
+                {/* Container Title and description of food */}
+                <View style={{flex:1,alignItems:'center',padding:4,marginTop:-20}}>
+                    <Text style={{fontSize:20,fontWeight:'bold'}}>{food.name}</Text>
+                    <Text style={{color:'grey',textAlign:'justify',paddingTop:10,fontWeight:'700'}}>{food.description} </Text>
+                </View>
+
+                <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',width:'100%'}}>
+                  <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 24 }}>
+                    <Text style={{ color: 'orange',fontWeight: 'bold' }}>$ </Text>
+                    <Text style={{ color: 'black' }}>20</Text>
+                  </Text>
+        
+                </View>
+              </TouchableOpacity>
+              
+      
+                  ))
+                }
+                
+
+                
+
+                
+                
+                
+
+              
               </View>
             </View>
+
+
+            
           </View>
         </ScrollView>
       </View>
@@ -178,21 +263,33 @@ const styles = StyleSheet.create({
         fontWeight: '500',
       },
     foodCard:{
-        width:"45%",
-        height:180,
-        backgroundColor:'#F7EED3',
-        borderRadius:20,
-        elevation: 2, // Shadow effect for Android
+        // width:"45%",
+        // height:180,
+        // backgroundColor:'#F7EED3',
+        // borderRadius:20,
+        elevation: 4, // Shadow effect for Android
         shadowColor: '#000', // Shadow color for iOS
         shadowOffset: { width: 0, height: 1 }, // Shadow offset for iOS
         shadowOpacity: 0.1, // Shadow opacity for iOS
-        shadowRadius: 2, // Shadow radius for iOS   
+        shadowRadius: 2, // Shadow radius for iOS
+        width:"45%",
+        // flex:1,
+        justifyContent:'center',
+        alignItems:"center",
+        padding:5,
+        backgroundColor:"#fff",
+        borderRadius:20,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius:50,
+        height:170 
     },
     foodContainer:{
+        paddingTop:70,
         flex:1,
         flexDirection:'row',
         flexWrap:'wrap',
-        gap:20,
+        columnGap:22,
+        rowGap:90,
         alignItems:'center',
         justifyContent:'center'
     },
@@ -203,22 +300,30 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start', // Aligns items to the start
     },  
   categoryItem: {
+    
     flex:1,
-    justifyContent:"space-evenly",
+    flexDirection:'row',
+    justifyContent:"space-between",
     alignItems:'center',
-    height:80,
-    width:75,
-    backgroundColor: '#007bff', // Background color for category items
+    gap:10,
+    backgroundColor: 'black', // Background color for category items
+
+    // backgroundColor: '#FF9130', // Background color for category items
     borderRadius: 20, // Rounded corners
     paddingVertical: 10, // Vertical padding
     paddingHorizontal: 16, // Horizontal padding
     marginRight: 12, // Space between items
+    marginBottom:10,
+    elevation:5,
+    // padding:5
   },
   categoryText: {
-    color: '#fff', // Text color for category items
-    fontWeight: '600', // Semi-bold text
+    color: '#fff', 
+    fontWeight: '600', 
+
   },
   categoryCard:{
+
     // height: 150,
     width: '100%',
     // backgroundColor: '#fff', // Background color of the card
@@ -303,7 +408,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Changed from space-evenly to flex-start
   },
   container: {
-    padding:20,
+    padding:5,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 50,
