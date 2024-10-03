@@ -61,6 +61,10 @@ const SingleMenuItem = () => {
                                   <Text style={styles.textQuantityEditor} >1</Text>
                 <TouchableOpacity><Text style={styles.textQuantityEditor} >+</Text></TouchableOpacity>
             </View>
+            <View>
+                <Text>Test add commit</Text>
+            </View>
+
         </View>
     );
 };
