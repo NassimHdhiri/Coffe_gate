@@ -1,5 +1,5 @@
 import { Tabs, useRouter } from "expo-router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const TabLayout = () => {
     const router = useRouter();
@@ -16,7 +16,7 @@ const TabLayout = () => {
 
 return (
     <Tabs>
-        <Tabs.Screen name="index" options={{ title: "Menu",headerShown:false }} />
+        <Tabs.Screen name="index"       options={{ title: "Menu",headerShown:false }} />
         <Tabs.Screen name="admin/index" options={{ title: "Admin" }} />
         <Tabs.Screen name="client/index" options={{ title: "Client",headerShown:false,    tabBarStyle: { display: 'none' }}} />
         <Tabs.Screen name="waiter/index" options={{ title: "Waiter" }} />

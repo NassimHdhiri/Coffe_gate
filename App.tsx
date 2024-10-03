@@ -1,6 +1,7 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@rneui/themed";
 import Component from "./components/MyComponent";
+import './gesture-handler';
 
 const theme = createTheme({
   lightColors: {},
