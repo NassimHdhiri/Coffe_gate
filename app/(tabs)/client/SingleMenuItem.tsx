@@ -1,6 +1,6 @@
 import { useAssets } from 'expo-asset';
 import React from 'react';
-import { Image,Text, StyleSheet, View ,ActivityIndicator} from 'react-native';
+import { Image,Text, StyleSheet, View ,ActivityIndicator, TouchableOpacity} from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'; // Ensure correct import
 
@@ -54,6 +54,13 @@ const SingleMenuItem = () => {
             <View style={styles.containerImage}>
                 <Image source={assets[0]} style={{ color: 'white', alignSelf: 'center'}}/>
             </View>
+
+            {/* Quantity editor*/}
+            <View style={styles.quantityEditor}>
+                <TouchableOpacity><Text style={styles.textQuantityEditor} >-</Text></TouchableOpacity>
+                                  <Text style={styles.textQuantityEditor} >1</Text>
+                <TouchableOpacity><Text style={styles.textQuantityEditor} >+</Text></TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -61,13 +68,29 @@ const SingleMenuItem = () => {
 export default SingleMenuItem;
 
 const styles = StyleSheet.create({
+    textQuantityEditor:{
+        fontSize:30
+    },
+    quantityEditor:{
+        margin:'auto',
+        flexDirection:'row',
+        backgroundColor:'white',
+        alignItems:'center',
+        justifyContent:'center',
+        columnGap:30,
+        borderRadius:10,
+        width:140,
+        height:50,
+        elevation:5,
+        marginTop:-25
+    },
     styleLeftIconHeader:{
         backgroundColor:'grey',
         borderRadius:5,
         padding:2
     },
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: '#f5f5f5',
     },
     headerStyle: {
@@ -79,7 +102,8 @@ const styles = StyleSheet.create({
     containerImage: {
         height: 320,
         backgroundColor: 'black',
-        borderBottomLeftRadius: 80,
-        borderBottomRightRadius:80,
+        borderBottomLeftRadius: 90,
+        borderBottomRightRadius:90,
+        elevation:5
     },
 });
