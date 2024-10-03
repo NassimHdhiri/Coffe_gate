@@ -26,6 +26,14 @@ const ClientPage = () => {
 
   const backgroundImage = { uri: 'https://i.pinimg.com/564x/66/69/aa/6669aa09bc7baabaf050f80c86416806.jpg' }; // Replace with your image URL
 
+  const [layout, setLayout] = useState(null);
+
+  // Function to handle layout changes
+  const handleLayout = (event) => {
+    const { x, y, width, height } = event.nativeEvent.layout;
+    console.log(`Position - x: ${x}, y: ${y}, width: ${width}, height: ${height}`);
+    setLayout({ x, y, width, height });
+  };
  
   return (
     <DrawerLayoutAndroid
@@ -37,9 +45,9 @@ const ClientPage = () => {
       <View style={styles.container}>
         {/* Header */}
         <Header
-  containerStyle={{ height: 140, backgroundColor: 'transparent' }}
-  placement="left"
-  leftComponent={
+        containerStyle={{ height:100, backgroundColor: 'transparent' }}
+        placement="left"
+        leftComponent={
     <View style={{backgroundColor:'grey',borderRadius:10,width:40,height:40,alignContent:'center'}} >
       <Icon 
         size={30}
@@ -53,7 +61,7 @@ const ClientPage = () => {
   rightComponent={
     <Avatar
       size={40}
-      rounded
+      avatarStyle={{borderRadius:10}}
       source={{
         uri: 'https://mighty.tools/mockmind-api/content/human/5.jpg',
       }}
@@ -73,7 +81,7 @@ const ClientPage = () => {
             <EventCard/>
 
             {/* Categories */}
-            <View style={styles.categoryCard}>
+            <View style={styles.categoryCard} onLayout={handleLayout}>
               <Text style={styles.eventLabel}>Categories</Text>
               <CategoryItem/>
             </View>
@@ -163,7 +171,7 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   scrollContainer: {
-    paddingBottom:60,
+    paddingBottom:  65,
     flexGrow: 1, // This allows the ScrollView to grow if content exceeds its height
   },
   containerBody: {

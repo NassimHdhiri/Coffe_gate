@@ -17,14 +17,14 @@ import { ListItem, Text } from 'react-native-elements';
   const navigationView = () => (
     <View style={[styles.container, styles.navigationContainer]}>
       {list.map((item, i) => (
-        <Link href={item.path} key={i} style={styles.link}>
-          <ListItem bottomDivider containerStyle={styles.listItem}>
+        // <Link href={item.path} key={i} style={styles.link}>
+          <ListItem bottomDivider key={i} containerStyle={styles.listItem}>
             <ListItem.Content>
               <ListItem.Title>{item.content}</ListItem.Title>
             </ListItem.Content>
             <ListItem.Chevron />
           </ListItem>
-        </Link>
+        // </Link>
       ))}
     </View>
   );

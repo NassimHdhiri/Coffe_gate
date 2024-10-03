@@ -6,40 +6,50 @@ const BottomBar = () => {
   return (
     <View style={styles.containerBottomBar}>
       {/* icon white menu */}
-      <Icon
-        name="menu"
-        type="material"
-        color="#fff"
-        size={25}
-        containerStyle={styles.iconStyle}
-      />
+      <View style={styles.iconSelectedBorder}>
+          <Icon
+            name="menu"
+            type="material"
+            color="orange"
+            size={25}
+            containerStyle={styles.iconStyleSelected}
+          />
+      </View>
+      
 
       {/* icon white favorite */}
-      <Icon
-        name="favorite"
-        type="material"
-        color="#fff"
-        size={25}
-        containerStyle={styles.iconStyle}
-      />
+      
+      <View>
+        <Icon
+          name="favorite"
+          type="material"
+          color="#fff"
+          size={25}
+          containerStyle={styles.iconStyle}
+        />
+      </View>
 
       {/* icon white settings */}
-      <Icon
-        name="settings"
-        type="material"
-        color="#fff"
-        size={25}
-        containerStyle={styles.iconStyle}
-      />
+      <View>
+        <Icon
+          name="settings"
+          type="material"
+          color="#fff"
+          size={25}
+          containerStyle={styles.iconStyle}
+        />
+      </View>
 
       {/* icon white profile */}
-      <Icon
-        name="person"
-        type="material"
-        color="#fff"
-        size={25}
-        containerStyle={styles.iconStyle}
-      />
+      <View>
+        <Icon
+          name="person"
+          type="material"
+          color="#fff"
+          size={25}
+          containerStyle={styles.iconStyle}
+        />
+      </View>
     </View>
   );
 };
@@ -63,7 +73,19 @@ const styles=StyleSheet.create(
             // height: 60,
           },
           iconStyle: {
-            paddingHorizontal: 15,
+            paddingHorizontal: 13,
           },
+          iconStyleSelected: {
+            paddingHorizontal: 13,
+            marginBottom:-10
+          },
+          iconSelectedBorder:{
+            borderBottomColor:'orange',
+            borderBottomWidth:5,
+            paddingBottom:20,
+            marginBottom:-18,
+            borderRadius:2
+
+          }
     }
 )
