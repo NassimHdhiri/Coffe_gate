@@ -76,6 +76,14 @@ export default CategoryItem;
 
 const styles=StyleSheet.create(
     {
+        categorySelected:{
+          backgroundColor:'orange',
+          flex:1,
+          flexDirection:'row',
+          justifyContent:"space-between",
+          alignItems:'center',
+          gap:10, 
+        },
         categoryDetailTitle: {
             fontSize: 18,
             fontWeight: 'bold',
@@ -104,7 +112,10 @@ const styles=StyleSheet.create(
         marginRight: 12, // Space between items
         marginBottom:10,
         elevation:5,
-        // padding:5
+
+        // selected category
+        borderColor:'orange',
+        borderBottomWidth:2,
       },
       categoryText: {
         color: '#fff', 

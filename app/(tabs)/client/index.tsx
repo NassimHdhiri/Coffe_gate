@@ -48,15 +48,15 @@ const ClientPage = () => {
         containerStyle={{ height:100, backgroundColor: 'transparent' }}
         placement="left"
         leftComponent={
-    <View style={{backgroundColor:'grey',borderRadius:10,width:40,height:40,alignContent:'center'}} >
-      <Icon 
-        size={30}
-        name="menu" 
-        type="material" // Correct type for a material icon
-        // color="#fff"    // Change this to the color you want
-        onPress={() => console.log('Menu pressed')} // Example action for icon
-      />
-    </View>
+        <View style={{flex:1,backgroundColor:'orange',borderRadius:10,width:40,height:40,justifyContent:'center',alignContent:'center'}} >
+          <Icon 
+            size={30}
+            name="menu" 
+            type="material" // Correct type for a material icon
+            // color="#fff"    // Change this to the color you want
+            onPress={() => console.log('Menu pressed')} // Example action for icon
+          />
+        </View>
   }
   rightComponent={
     <Avatar
