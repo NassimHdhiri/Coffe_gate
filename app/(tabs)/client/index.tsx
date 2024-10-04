@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef, useState } from 'react';
 import {DrawerLayoutAndroid,StyleSheet,TouchableOpacity,ImageBackground} from 'react-native';
 import { Text, SearchBar, Header, Avatar, Icon } from 'react-native-elements';
@@ -205,3 +206,54 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+=======
+import React from 'react'
+import {Text,StyleSheet,View} from 'react-native'
+import { Header, Icon } from 'react-native-elements';
+
+
+const SingleMenuItem=()=>{
+    return(
+        <View style={styles.container}>
+            <Header
+                // style={styles.headerStyle}
+                leftComponent={
+                    <Icon 
+                        name='disc'
+                        type='materiel'
+                        size={20}
+                    />
+                }
+            />
+
+            {/* Container Image */}
+            <View style={styles.containerImage}>
+
+            </View>
+        </View>
+    )
+}
+
+export default SingleMenuItem;
+
+const styles=StyleSheet.create(
+    {
+        container:{
+            // padding:40
+        },
+        headerStyle:{
+            width:'100%',
+            padding:40
+        },
+        containerImage:{
+            height:300,
+            backgroundColor:'black'
+        }
+    }
+)
+
+
+
+
+
+>>>>>>> 19f31930a793367e4cda7f7a758826e6e68ab4d3
