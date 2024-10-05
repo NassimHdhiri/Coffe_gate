@@ -226,3 +226,34 @@ If you encounter the following TypeScript error when using NativeWind in your Re
 
    If you're using an IDE like VSCode, you may need to restart the TypeScript server for the changes to take effect.
 
+### Issue 5: Large File Exceeds GitHub's Size Limit
+While pushing my project to GitHub, I encountered an error where a large file exceeded GitHub’s file size limit (100 MB). This prevented me from pushing the changes to the remote repository.
+
+#### Error Message:
+Enumerating objects: 253, done. Delta compression using up to 8 threads Compressing objects: 100% (87/87), done. Total 223 (delta 143), reused 201 (delta 128), pack-reused 0 remote: Resolving deltas: 100% (143/143), completed with 17 local objects. remote: error: Trace: 849eaa385f32c221ad6865670a13bdb8c3fe54d957087e627c06eaee072f5d38 remote: error: See https://gh.io/lfs for more information. remote: error: File assets/foods/coffee/scoped_dir15164_1046407400/MEmu-setup-abroad-02bf66ec.exe is 138.58 MB; this exceeds GitHub's file size limit of 100.00 MB remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com. To https://github.com/NassimHdhiri/Coffe_gate.git ! [remote rejected] master -> master (pre-receive hook declined) error: failed to push some refs to 'https://github.com/NassimHdhiri/Coffe_gate.git'
+
+#### Solution:
+1. **Identify the Large File:**
+   The error indicates the file that exceeds the 100 MB limit (`MEmu-setup-abroad-02bf66ec.exe` in this case).
+
+2. **Install `git-filter-repo` to Remove the File from Git History:**
+   GitHub prevents pushing large files, even if they are deleted locally. To fully remove the file from your Git history:
+```bash
+   pip install git-filter-repo
+```
+3. Use git-filter-repo to Delete the File from Git’s History: To remove the large file entirely from all previous commits in the repository:
+```bash
+git filter-repo --path 'assets/foods/coffee/scoped_dir15164_1046407400/MEmu-setup-abroad-02bf66ec.exe' --invert-paths
+```
+This command removes the large file from the Git history while retaining the rest of the project.
+
+4. Relink the Remote Repository: 
+```bash
+git remote add origin https://github.com/your-username/Coffe_gate.git
+```
+
+5. Force Push the Cleaned Repository: 
+Since you’ve rewritten the Git history, you need to force push the changes to GitHub:
+```bash
+git push origin master --force
+```
