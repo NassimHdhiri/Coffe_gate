@@ -218,9 +218,9 @@ If you encounter the following TypeScript error when using NativeWind in your Re
  2. Add Type Reference:
 
    Open the my-app.d.ts file and add the following line:
-   ```bash
+```bash
    /// <reference types="nativewind/types" />
-   ```
+```
 
  3. Restart Your TypeScript Server:
 

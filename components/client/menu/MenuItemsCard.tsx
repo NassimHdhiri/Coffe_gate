@@ -41,7 +41,7 @@ const MenuItemsCard = () => {
       {foods.map((food, index) => (
         <TouchableOpacity
           key={index}
-          onPress={() => router.push('/admin')}
+          onPress={() => router.push('/client/SingleMenuItem')}
           style={styles.foodCard}
           accessibilityLabel={`Order ${food.name}`}
         >
