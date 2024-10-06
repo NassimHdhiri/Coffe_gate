@@ -1,60 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  DrawerLayoutAndroid,
-  StyleSheet,
-  View,
-} from 'react-native';
-import { Link } from 'expo-router';
-import { ListItem, Text } from 'react-native-elements';
+// NavigationView.js
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { ListItem } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-
-  const list = [
-    { path: '/admin', content: 'Admin' },
-    { path: '/client', content: 'Client' },
-    { path: '/waiter', content: 'Waiter' },
-  ];
-
-  const navigationView = () => (
-    <View style={[styles.container, styles.navigationContainer]}>
-      {list.map((item, i) => (
-        // <Link href={item.path} key={i} style={styles.link}>
-          <ListItem bottomDivider key={i} containerStyle={styles.listItem}>
-            <ListItem.Content>
-              <ListItem.Title>{item.content}</ListItem.Title>
-            </ListItem.Content>
-            <ListItem.Chevron />
-          </ListItem>
-        // </Link>
-      ))}
-    </View>
+const NavigationView = ({ list }) => {
+  return (
+    <SafeAreaView>
+        <View style={styles.navigationContainer}>
+          {list.map((item, i) => (
+            <ListItem bottomDivider key={i} containerStyle={styles.listItem}>
+              <ListItem.Content>
+                <ListItem.Title style={styles.listItemTitle}>
+                  {item.content}
+                </ListItem.Title>
+              </ListItem.Content>
+              <ListItem.Chevron />
+            </ListItem>
+          ))}
+        </View>
+    </SafeAreaView>
+    
   );
-
-  export default navigationView;
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  navigationContainer: {
+    backgroundColor: '#fff', // Customize background color here
     padding: 16,
-    zIndex: 50,
-  },
-  link: {
-    width: '100%',
   },
   listItem: {
-    width: '100%',
-    paddingVertical: 10,
+    backgroundColor: '#e0f7fa', // Example: light teal background
+    borderRadius: 8,
+    marginBottom: 10,
   },
-  navigationContainer: {
-    backgroundColor: '#ecf0f1',
-    flex: 1,
-    width: '100%',
-  },
-  paragraph: {
-    padding: 16,
-    fontSize: 15,
-    textAlign: 'center',
+  listItemTitle: {
+    color: '#00796b', // Example: dark green text
+    fontWeight: 'bold',
   },
 });
+
+export default NavigationView;
+
+
 
