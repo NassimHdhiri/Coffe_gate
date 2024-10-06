@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import {DrawerLayoutAndroid,StyleSheet,TouchableOpacity,ImageBackground} from 'react-native';
 import { Text, SearchBar, Header, Avatar, Icon } from 'react-native-elements';
 import { ScrollView } from 'react-native';
-import navigationView from '../../../components/client/menu/Drawer';
+import NavigationView from '../../../components/client/menu/Drawer';
 
 // Import Local assets (Images)
 import { useAssets } from 'expo-asset';
@@ -22,6 +22,7 @@ import BottomBar from '../../../components/client/menu/BottomBar';
 const ClientPage = () => {
   const drawer = useRef<DrawerLayoutAndroid>(null);
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>('left');
+  const [isOpen, setIsOpen] = useState(false); // State to manage drawer open/close
 
 
 
@@ -37,12 +38,31 @@ const ClientPage = () => {
     setLayout({ x, y, width, height });
   };
  
+  const list = [
+    { content: 'Home', path: '/home' },
+    { content: 'Profile', path: '/profile' },
+    { content: 'Settings', path: '/settings' },
+  ];
+
+  // Function to toggle the drawer
+  // Function to toggle the drawer
+  const toggleDrawer = () => {
+    if (drawer.current) { // Check if drawer.current is not null
+      if (isOpen) {
+        drawer.current.closeDrawer();
+      } else {
+        drawer.current.openDrawer();
+      }
+      setIsOpen(!isOpen); // Toggle the state
+    }
+  };
+
   return (
     <DrawerLayoutAndroid
       ref={drawer}
       drawerWidth={300}
       drawerPosition={drawerPosition}
-      renderNavigationView={navigationView}
+      renderNavigationView={() => <NavigationView list={list} />}
     >
       <View style={styles.container}>
         {/* Header */}
@@ -55,8 +75,8 @@ const ClientPage = () => {
             name="menu" 
             type="material" // Correct type for a material icon
             // color="#fff"    // Change this to the color you want
-            onPress={() => console.log('Menu pressed')} // Example action for icon
-          />
+            onPress={toggleDrawer}            
+            />
         </View>
   }
   rightComponent={
