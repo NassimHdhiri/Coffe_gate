@@ -20,6 +20,7 @@ return (
         <Tabs.Screen name="admin/index" options={{ title: "Admin" }} />
         <Tabs.Screen name="client/index" options={{ title: "Client",headerShown:false,    tabBarStyle: { display: 'none' }}} />
         <Tabs.Screen name="client/Cart" options={{ title: "My Cart",headerShown:false,    tabBarStyle: { display: 'none' }}} />
+        <Tabs.Screen name="client/ScanTable" options={{ title: "My Cart",headerShown:false,    tabBarStyle: { display: 'none' }}} />
         <Tabs.Screen name="client/SingleMenuItem" options={{ title: "Client",headerShown:false,    tabBarStyle: { display: 'none' }}} />
         <Tabs.Screen name="waiter/index" options={{ title: "Waiter" }} />
     </Tabs>

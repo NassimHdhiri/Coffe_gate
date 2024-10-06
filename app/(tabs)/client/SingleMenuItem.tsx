@@ -172,7 +172,7 @@ const SingleMenuItem = () => {
                       containerStyle={{
                         width: '60%',
                         height:'100%',
-                        // // marginHorizontal: 50,
+                        marginLeft:2,
                         // // marginVertical: 10,
                         borderRadius:22
                       }}
@@ -282,7 +282,8 @@ const styles = StyleSheet.create({
       position:'absolute',
       paddingBottom:10,
       paddingTop:5,
-      bottom:0
+      bottom:0,
+
     },
     imageOfProduct:{
         color: 'white', 
