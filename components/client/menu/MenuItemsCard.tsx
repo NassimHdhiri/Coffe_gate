@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { Text } from 'react-native-elements';
 import { useAssets } from 'expo-asset';
 import React from 'react'
+// Animated.View
 
 const MenuItemsCard = () => {
   // Load Local Images from assets folder
